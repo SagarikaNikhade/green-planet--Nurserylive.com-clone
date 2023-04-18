@@ -159,6 +159,166 @@
           "bloom":"Mid Spring - Mid Fall",
           "level":"Easy"
         }
+      },
+      {
+        "id":11 ,
+        "title": "Cassia Marginata, Rose Shower - 0.5 kg Seeds",
+        "price": "₹419",
+        "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-cassia-marginata-rose-shower-0-5-kg-seeds-16968694956172_600x600.jpg?v=1634215611",
+        "rating": "4.9",
+        "category":"seed",
+        "description":{
+          "info":"The Cassias, with their lovely cool shades of pinks, green line the boulevards of many tropical cities; and when you see one in full flower for the first time, you have to ask, How hardy is a cassia tree and can I take one home?.The Cassia has few distinguishing features can be observed with little trouble. It is slightly smaller, but has the same spreading crown, long drooping branches and numerous, feathery leaves, but the branches are rough. The flowers are similar but the sepals are smooth, green inside and deep-red underneath.",
+          "common":"Apple Blossom",
+          "height":"20 to 30 feet",
+          "fcolor":"Pink",
+          "bloom":"Spring / Summer",
+          "level":"Easy."
+        }
+      },
+      {
+        "id":12 ,
+        "title": "Tomato Cherry Red - Organic Vegetable Seeds",
+        "price": "₹74",
+        "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-tomato-cherry-red-organic-vegetable-seeds-16969381445772_600x600.jpg?v=1634205088",
+        "rating": "5.5",
+        "category":"seed",
+        "description":{
+          "info":"If you are already thinking about what you want to grow in your garden this season, start out right with organic seeds. Enjoy your Kitchen Gardening with chemical-free Tomato Cherry Red - Organic Vegetable Seeds.",
+          "common":"Solanum Lycopersicum, Cherry Tomato, Red Cherry.",
+          "height":"Up to 2.13 meter.",
+          "fcolor":"Yellow.",
+          "bloom":"1,2 months after transplanting, if seeds were sown in the month of June-Aug, Nov-Dec the blooming time will be Sep-Oct and Jan-Feb respectively.",
+          "level":"Moderately difficult."
+        }
+      },
+      {
+        "id":13 ,
+        "title": "Phyllostachys Nigra, Black Bamboo - Plant",
+        "price": "₹735",
+        "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-plants-phyllostachys-nigra-black-bamboo-plant-16969193095308_300x300.png?v=1601350389",
+        "rating": "6.9",
+        "category":"plant",
+        "description":{
+          "info":"Phyllostachys are attractive, tall, clump-forming, evergreen bamboos.nigra is a large, elegant evergreen bamboo with arching canes, green at first becoming blackish-brown with maturity, and narrow-lanceolate leaves to 12cm in length.Phyllostachys are attractive, tall, clump-forming, evergreen bamboos with canes grooved on alternate sides between the nodes, and usually two leafy branches at each node.",
+          "common":"Black bamboo.",
+          "height":"23-25 feet",
+          "fcolor":"",
+          "bloom":"",
+          "level":"Easy to grow."
+        }
+      },
+      {
+        "id":14,
+        "title": "Tulip Queen of the night (Black) - Bulbs (set of 5)",
+        "price": "₹459",
+        "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-tulip-queen-of-the-night-flower-bulbs-719902_600x600.jpg?v=1679751793",
+        "rating": "8.8",
+        "category":"bulb",
+        "description":{
+          "info":"Tulip Queen of Night is shinier and blacker than black blooms. This is a tulip hybrid that every collector should have at one point.Tulips flowers are eye-catching blooming in the spring season. You can boost your garden beauty with this gorgeous flowering plant.The tulip is a perennial, bulbous plant with attractive and showy floweâ‚¹ The flowers are usually large, showy and brightly colored, generally red, pink, yellow, or white (usually in warm colors). They often have a different colored blotch at the base of the sepals and petals.",
+          "common":"Tulips",
+          "height":"Up to 2 feet",
+          "fcolor":"Black",
+          "bloom":"Spring",
+          "level":"Easy to grow"
+        }
+      },
+      {
+        "id":15 ,
+        "title": "Calla Lily (Pink) - Bulbs (set of 5)",
+        "price": "₹559",
+        "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-calla-lily-pink-bulbs-set-of-5-880663_600x600.jpg?v=1679749389",
+        "rating": "4.5",
+        "category":"bulb",
+        "description":{
+          "info":"Pick these easy-to-grow varieties for the best blooms. It is a rhizomatous herbaceous perennial plant, evergreen where rainfall and temperatures are adequate.It has large clumps of broad, arrow shaped dark green leaves up to 45 cm long.The inflorescences are large and are produced in spring, summer and autumn, with a pure white spathe up to 25 cm and a yellow spadix. The spadix produces a faint, sweet fragrance.",
+          "common":"Calla lily and arum lily",
+          "height":"Up to 3 feet",
+          "fcolor":"Pink",
+          "bloom":"Spring, summer and autumn",
+          "level":"Easy to grow"
+        }
+      },
+      {
+        "id":16 ,
+        "title": "Coriander Imported - Herb Seeds",
+        "price": "₹89",
+        "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-coriander-imported-herb-seeds-16969067036812_600x600.jpg?v=1634203694",
+        "rating": "6.6",
+        "category":"seed",
+        "description":{
+          "info":"All parts of the Coriander is used in cooking. 1 packet contains 20gm seeds of Coriander Imported - Seeds.Coriander is a fast-growing, aromatic herb that grows in the cooler weather of spring and fall. Coriander seed is technically a fruit containing two seeds in it.",
+          "common":"Mexican coriander",
+          "height":"16 to 24 inches (40-60cm)",
+          "fcolor":"White",
+          "bloom":"Spring and fall Season",
+          "level":"Easy to grow"
+        }
+      },
+      {
+        "id":17,
+        "title": "Areca Palm - Plant",
+        "price": "₹799",
+        "image": "",
+        "rating": "3.5",
+        "category":"plant",
+        "description":{
+          "info":"Areca palm is clump-growing with ringed, yellow leaf-ribs. The foliage is evergreen.The areca palm (Chrysalidocarpus lutescens or Dypsis lutescens), also called the yellow butterfly palm and golden cane palm is one of the easiest palm trees to grow indoo The foliage is evergreen, of Fine texture and yellow-green in colour.Pinnate, 6 to 8 pale green leaves per stem, 80 to 100 leaflets, to 8 feet long (2.4 m). Yellow if grown with enough light, 2 feet long. Yellow male and female flowers on the same inflorescence. This palm tree, with its long, graceful feather-shaped fronds, will add a tropical feel to your home and is especially well suited for screened patios and atriums.",
+          "common":"Golden Cane Palm, Areca Palm, Butterfly Palm, Madagascar Palm",
+          "height":"6 to 8 feet",
+          "fcolor":"Yellow",
+          "bloom":"During late spring or early summer",
+          "level":"Easy to grow"
+        }
+      },
+      {
+        "id":18,
+        "title": "Peperomia Magnoliifolia - Succulent Plant",
+        "price": "₹259",
+        "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-peperomia-magnoliifolia-plant_600x600.jpg?v=1634225724",
+        "rating": "5.5",
+        "category":"plant",
+        "description":{
+          "info":"Peperomia plants can be pruned anywhere along the stem. New growth develops from the nodes just below the cut in the stem.The palmate pattern of leaf veins is marked out in some species as furrows in the leaves or as coloured lines. Most Peperomias have tiny flowers which are packed into a characteristic greenish or brown conical spike (spadix) like an inverted catkin.",
+          "common":"Peperomia, spoonleaf peperomia",
+          "height":"12 inches",
+          "fcolor":"Yellow to brown",
+          "bloom":"Spring and summer",
+          "level":"Easy to grow"
+        }
+      },
+      {
+        "id":19,
+        "title": "Rosemary - Herb Seeds",
+        "price": "₹75",
+        "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-rosemary-herb-seeds-16969117466764_600x600.jpg?v=1634204791",
+        "rating": "3.5",
+        "category":"seed",
+        "description":{
+          "info":"Rosmarinus officinalis. 1 packet contains 30 seeds of Rosemary - Seeds.The leaves are evergreen, 2-4 cm long and 2-5 mm broad, green above, and white below, with dense short woolly hair. The plant flowers in spring and summer in temperate climates but the plants can be in constant bloom in warm climates.",
+          "common":"Rosmarinus officinalis (Botanical name)",
+          "height":"3 to 4 feet (90 - 120cm).",
+          "fcolor":"purple or blue",
+          "bloom":"summer",
+          "level":"easy to grow"
+        }
+      },
+      {
+        "id":20,
+        "title": "Anthurium (Pink) - Plant",
+        "price": "₹999",
+        "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-anthurium-andreanum-princess-amalia-elegance-plant_600x600.jpg?v=1634213376",
+        "rating": "7.8",
+        "category":"plant",
+        "description":{
+          "info":"If you have space to spare, make an impressive display in your living room with a great eye-catcher Anthurium plant.",
+          "common":"Tailflower, flamingo flower and laceleaf.",
+          "height":"Up to 50 centimeter",
+          "fcolor":"Pink",
+          "bloom":"Year Round",
+          "level":"Medium"
+        }
       }
     ]
 }
