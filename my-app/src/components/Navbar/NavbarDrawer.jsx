@@ -20,7 +20,7 @@ const NavbarDrawer = ({ isOpen, onOpen, onClose }) => {
       pr={[2, null, 4]}
     >
       <Button colorScheme="blue" onClick={onOpen}>
-        <HiMenu boxSize={6} w={12} h={12} color={"white"} />
+        <HiMenu boxsize={6} w={12} h={12} color={"white"} />
       </Button>
 
       <Drawer

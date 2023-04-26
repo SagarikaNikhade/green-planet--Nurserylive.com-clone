@@ -52,7 +52,7 @@ export const Slideshow = () => {
 
 const DIV = styled.div`
     border:1px solid white;
-    width:95%;
+    width:98%;
     height:auto;
     margin-top:30px;
 

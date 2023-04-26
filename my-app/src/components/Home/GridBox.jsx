@@ -11,7 +11,7 @@ const GridBox = () => {
           templateRows='repeat(4, 1fr)'
           templateColumns='repeat(5, 1fr)'
           gap={4}
-          w={1300}
+          w={1400}
         >
           <GridItem rowSpan={2} colSpan={3} bgImg='https://cdn.shopify.com/s/files/1/0047/9730/0847/files/nurserylive-home-page-gift_223a0267-5e95-413f-9c5a-52dafe5b34ef_1109x717.jpg?v=1633892191'>
             <div >
