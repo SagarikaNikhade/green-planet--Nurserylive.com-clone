@@ -3,7 +3,7 @@
       {
         "id":1,
         "title": "Anthurium (Pink) - Plant",
-        "price": "₹999",
+        "price": 999,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-anthurium-andreanum-princess-amalia-elegance-plant_600x600.jpg?v=1634213376",
         "rating": "7.8",
         "category":"plant",
@@ -19,7 +19,7 @@
       {
         "id": 2,
         "title": "Parijat Tree, Parijatak, Night Flowering Jasmine - Plant",
-        "price": "₹399",
+        "price": 399,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-plants-parijat-tree-parijatak-night-flowering-jasmine-plant-16969158688908_600x600.jpg?v=1634225455",
         "rating": "5.5",
         "category":"plant",
@@ -35,7 +35,7 @@
       {
         "id": 3,
         "title": "Radish Red Round - Desi Vegetable Seeds",
-        "price": "₹27",
+        "price": 27,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-radish-red-round-desi-vegetable-seeds-16969238020236_600x600.jpg?v=1634204738",
         "rating": "3.4",
         "category":"seed",
@@ -51,7 +51,7 @@
       {
         "id": 4,
         "title": "Rajnigandha, Tuberose - Bulbs (set of 10)",
-        "price": "₹199",
+        "price": 199,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-rajnigandha-tuberose-bulbs-set-of-10-280288_600x600.jpg?v=1679750991",
         "rating": "4.5",
         "category":"bulb",
@@ -67,7 +67,7 @@
       {
         "id": 5,
         "title": "Zephyranthes Lily, Rain Lily (Yellow) - Bulbs (set of 10)",
-        "price": "₹159",
+        "price": 159,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-bulbs-zephyranthes-rain-lily-yellow-flower-bulbs_600x600.jpg?v=1634231936",
         "rating": "4.5",
         "category":"bulb",
@@ -83,7 +83,7 @@
       {
         "id": 6,
         "title": "Anemone The Admiral (Pink) - Bulbs (set of 5)",
-        "price": "₹259",
+        "price": 259,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-bulbs-anemone-the-admiral-pink-bulbs-16968593178764_600x600.jpg?v=1634213740",
         "rating": "4.5",
         "category":"bulb",
@@ -99,7 +99,7 @@
       {
         "id": 7,
         "title": "Curry Leaves, Kadi Patta, Murraya koenigii, Meetha Neem - Plant",
-        "price": "₹359",
+        "price": 359,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-curry-leaves-kadi-patta-murraya-koenigii-meetha-neem-plant_600x600.jpg?v=1634218014",
         "rating": "5.5",
         "category":"plant",
@@ -115,7 +115,7 @@
       {
         "id": 8,
         "title": "Tomato Roma VF - Heirloom Vegetable Seeds",
-        "price": "₹57",
+        "price": 57,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-tomato-roma-vf-heirloom-vegetable-seeds-16969125036172_600x600.jpg?v=1634205191",
         "rating": "5.9",
         "category":"seed",
@@ -131,7 +131,7 @@
       {
         "id": 9,
         "title": "Kagzi Nimboo, Lemon Tree - Plant",
-        "price": "₹599",
+        "price": 599,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-plants-kagzi-nimboo-lemon-tree-plant-16968973811852_600x600.jpg?v=1634222733",
         "rating": "6.6",
         "category":"plant",
@@ -147,7 +147,7 @@
       {
         "id": 10,
         "title": "Calendula Bon Bon Orange - Flower Seeds",
-        "price": "₹79",
+        "price": 79,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-calendula-bon-bon-orange-flower-seeds-16969061892236_600x600.jpg?v=1634203298",
         "rating": "7.9",
         "category":"seed",
@@ -163,7 +163,7 @@
       {
         "id":11 ,
         "title": "Cassia Marginata, Rose Shower - 0.5 kg Seeds",
-        "price": "₹419",
+        "price": 419,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-cassia-marginata-rose-shower-0-5-kg-seeds-16968694956172_600x600.jpg?v=1634215611",
         "rating": "4.9",
         "category":"seed",
@@ -179,7 +179,7 @@
       {
         "id":12 ,
         "title": "Tomato Cherry Red - Organic Vegetable Seeds",
-        "price": "₹74",
+        "price": 74,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-tomato-cherry-red-organic-vegetable-seeds-16969381445772_600x600.jpg?v=1634205088",
         "rating": "5.5",
         "category":"seed",
@@ -195,7 +195,7 @@
       {
         "id":13 ,
         "title": "Phyllostachys Nigra, Black Bamboo - Plant",
-        "price": "₹735",
+        "price": 735,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-plants-phyllostachys-nigra-black-bamboo-plant-16969193095308_300x300.png?v=1601350389",
         "rating": "6.9",
         "category":"plant",
@@ -211,7 +211,7 @@
       {
         "id":14,
         "title": "Tulip Queen of the night (Black) - Bulbs (set of 5)",
-        "price": "₹459",
+        "price": 459,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-tulip-queen-of-the-night-flower-bulbs-719902_600x600.jpg?v=1679751793",
         "rating": "8.8",
         "category":"bulb",
@@ -227,7 +227,7 @@
       {
         "id":15 ,
         "title": "Calla Lily (Pink) - Bulbs (set of 5)",
-        "price": "₹559",
+        "price": 559,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-calla-lily-pink-bulbs-set-of-5-880663_600x600.jpg?v=1679749389",
         "rating": "4.5",
         "category":"bulb",
@@ -243,7 +243,7 @@
       {
         "id":16 ,
         "title": "Coriander Imported - Herb Seeds",
-        "price": "₹89",
+        "price": 89,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-coriander-imported-herb-seeds-16969067036812_600x600.jpg?v=1634203694",
         "rating": "6.6",
         "category":"seed",
@@ -259,7 +259,7 @@
       {
         "id":17,
         "title": "Areca Palm - Plant",
-        "price": "₹799",
+        "price": 799,
         "image": "",
         "rating": "3.5",
         "category":"plant",
@@ -275,7 +275,7 @@
       {
         "id":18,
         "title": "Peperomia Magnoliifolia - Succulent Plant",
-        "price": "₹259",
+        "price": 259,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-peperomia-magnoliifolia-plant_600x600.jpg?v=1634225724",
         "rating": "5.5",
         "category":"plant",
@@ -291,7 +291,7 @@
       {
         "id":19,
         "title": "Rosemary - Herb Seeds",
-        "price": "₹75",
+        "price": 75,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-rosemary-herb-seeds-16969117466764_600x600.jpg?v=1634204791",
         "rating": "3.5",
         "category":"seed",
@@ -307,7 +307,7 @@
       {
         "id": 20,
         "title": "Miniature Rose, Button Rose (Any Color) - Plant",
-        "price": "₹ 259",
+        "price": 259,
         "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-miniature-rose-button-rose-any-color-plant-1-158202_540x720.jpg?v=1679750627",
         "rating": "4.5",
         "category":"plant",

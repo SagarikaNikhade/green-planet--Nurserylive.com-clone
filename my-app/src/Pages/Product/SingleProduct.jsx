@@ -22,6 +22,7 @@ import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import { StarIcon} from '@chakra-ui/icons'
 import { MdLocalShipping } from 'react-icons/md';
+import styled from "styled-components";
 
 const SingleProduct = () => {
     const [data, setData] = useState({})
@@ -58,17 +59,22 @@ const SingleProduct = () => {
     }, [])
 
  
+    const handleAddToCart = () =>{
+      let product = JSON.parse(localStorage.getItem("cart")) || [];
+      product.push(data);
+      localStorage.setItem("cart",JSON.stringify(product));
+    }
     //     useEffect(()=>{
     //         dispatch(getSingleProducts());
     //     },[location.search])
     //    console.log(x)
     return (
-        <div>
+        <DIV>
             <Center>
             <Grid templateColumns='repeat(2, 1fr)' gap={6} border='0px solid red' 
             p={10}
             box-shadow= 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
-            backgroundColor={"#32620e"}
+            backgroundColor={`#a5d38b`}
             mt={5}
             >
                 
@@ -154,7 +160,7 @@ const SingleProduct = () => {
               transform: 'translateY(2px)',
               boxShadow: 'lg',
             }}
-            onClick={handleAlert}
+            onClick={handleAddToCart}
             >
             Add to cart
           </Button>
@@ -170,8 +176,17 @@ const SingleProduct = () => {
                 
             </Grid>
             </Center>
-        </div>
+        </DIV>
     )
 }
 
 export default SingleProduct
+
+const DIV = styled.div`
+ @media (max-width: 710px){
+  Grid{
+display:flex;
+flex-direction:column;
+  }
+ }
+`;

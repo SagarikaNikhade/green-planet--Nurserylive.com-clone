@@ -19,7 +19,7 @@ const NavbarDrawer = ({ isOpen, onOpen, onClose }) => {
       display={{ sm: "block", base: "block", md: "block", lg: "none" }}
       pr={[2, null, 4]}
     >
-      <Button colorScheme="blue" onClick={onOpen}>
+      <Button colorScheme="#32620e" onClick={onOpen}>
         <HiMenu boxsize={6} w={12} h={12} color={"white"} />
       </Button>
 
@@ -35,7 +35,7 @@ const NavbarDrawer = ({ isOpen, onOpen, onClose }) => {
         <DrawerContent color={"white"} fontSize={"30px"} fontWeight={600}>
           <DrawerCloseButton />
           {/* <DrawerHeader borderBottomWidth="1px">Basic Drawer</DrawerHeader> */}
-          <DrawerBody bg={"#2a2f4c"}>
+          <DrawerBody  backgroundColor={"#32620e"}>
             <Box cursor={"pointer"} mt="10px" mb="10px">
               <RouterLink
                 // to="Home"

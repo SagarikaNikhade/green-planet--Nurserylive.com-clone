@@ -1,14 +1,13 @@
 import { Flex } from '@chakra-ui/react'
 import React from 'react'
 import Productlist from './Productlist'
-import SimpleSidebar from './side'
+import Bar from './Bar'
 const Product = () => {
   return (
     <div>
-      <Flex>
-        {/* <SimpleSidebar/> */}
+        <Bar/>
         <Productlist/>
-      </Flex>
+
     </div>
   )
 }

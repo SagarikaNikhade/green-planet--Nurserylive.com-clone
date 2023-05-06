@@ -1,5 +1,7 @@
-import { Stack, Heading, Button, HStack, Text, Center, Image, Box, Flex, Input, InputGroup, InputRightElement, VStack } from "@chakra-ui/react";
+import { Stack, Heading, Button, HStack, Text, Center, Box, Flex, Input, InputGroup, InputRightElement, VStack } from "@chakra-ui/react";
 import React from 'react';
+import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+
 
 const Footer = () => {
     const [show, setshow] = React.useState(false)
@@ -25,29 +27,32 @@ const Footer = () => {
                     }}>
                         <Stack align={'flex-start'}>
                             <Heading fontSize="16px" fontWeight={700} lineHeight="16.8px">Gardening Knowledge</Heading>
-                            <Text fontSize="14px" lineHeight="16.8px">About us</Text>
-                            <Text fontSize="14px" lineHeight="16.8px" >Careers</Text>
-                            <Text fontSize="14px" lineHeight="16.8px">Press Releases</Text>
-                            <Text fontSize="14px" lineHeight="16.8px">Amazon Science</Text>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">About us</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px" >Blogs - Plant Talk</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Blog - Kitchen Gardening</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Blogs - Top 10 Plants</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Blog - Plant Styling and DIY's</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Blogs - Sustainable Living</Text></a>
                         </Stack>
 
                         <Stack align={'flex-start'}>
                             <Heading fontSize="16px" fontWeight={700} lineHeight="16.8px">Useful Links</Heading>
-                            <Text fontSize="14px" lineHeight="16.8px">Facebook</Text>
-                            <Text fontSize="14px" lineHeight="16.8px" >Twitter</Text>
-                            <Text fontSize="14px" lineHeight="16.8px">Instagram</Text>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Track Order</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px" >Orders</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">FAQ's</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Offers</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Rewards</Text></a>
                         </Stack>
 
                         <Stack align={'flex-start'}>
                             <Heading fontSize="16px" fontWeight={700} lineHeight="16.8px">About</Heading>
-                            <Text fontSize="14px" lineHeight="16.8px">Sell on Amazon</Text>
-                            <Text fontSize="14px" lineHeight="16.8px" >Sell under AMAZON Accelerator</Text>
-                            <Text fontSize="14px" lineHeight="16.8px">Protect and Build Your Brand</Text>
-                            <Text fontSize="14px" lineHeight="16.8px">Amazon Global Selling</Text>
-                            <Text fontSize="14px" lineHeight="16.8px" >Become an Affiliate</Text>
-                            <Text fontSize="14px" lineHeight="16.8px">Fulfilment by Amazon</Text>
-                            <Text fontSize="14px" lineHeight="16.8px" >Advertise Your Products</Text>
-                            <Text fontSize="14px" lineHeight="16.8px">Amazon Pay on Merchants</Text>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">About Nurserylive</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px" >Contact us</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Privacy Policy</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Refund Policy</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px" >Shipping Policy</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px">Terms of Service</Text></a>
+                            <a href="/"><Text fontSize="14px" lineHeight="16.8px" >Jobs</Text></a>
                         </Stack>
 
                         <Stack align={'flex-start'}>
@@ -76,12 +81,21 @@ const Footer = () => {
                 <Center>
                     <VStack>
                         <Text fontSize="16px" fontWeight={700} lineHeight="16.8px" >Follow us on</Text>
-                        <Flex gap="20px">
-                            <Image w="150px" h="60px" marginTop="30px" gap="20px" src="https://tse2.mm.bing.net/th/id/OIP.93x8czri2oEOeMyxGv8sPwHaG2?w=186&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="amazon-logo" />
-                            <Image w="150px" h="60px" marginTop="30px" gap="20px" src="https://tse3.mm.bing.net/th/id/OIP.22-5_uU3zNVRHFMgtMUGVgHaH3?w=169&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="amazon-logo" />
-                        </Flex>
+                        <br />
+                        <Stack direction={'row'} spacing={6}>
+                            <Button label={'Twitter'} href={'#'}>
+                                <FaTwitter />
+                            </Button>
+                            <Button label={'YouTube'} href={'#'}>
+                                <FaYoutube />
+                            </Button>
+                            <Button label={'Instagram'} href={'#'}>
+                                <FaInstagram />
+                            </Button>
+                        </Stack>
                     </VStack>
                 </Center>
+                <br />
                 <Center>
                     <Flex gap="10px" color="white">
                         <p>Australia</p>
@@ -112,3 +126,4 @@ const Footer = () => {
 export default Footer;
 
 // footer and video not responsive
+

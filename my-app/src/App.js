@@ -6,8 +6,8 @@ import { MainRoute } from './Pages/MainRoute';
 
 function App() {
   return (
-    // <div className="App" style={{ backgroundImage:`url(${image})` }}>
-    <div className="App" style={{ backgroundColor:`#a5d38b` }}>
+    // <div className="App" backgroundColor:`#a5d38b` style={{ backgroundImage:`url(${image})` }}>
+    <div className="App" style={{ backgroundColor: "#8dd15a"}}>
      <Navbar/>
      <MainRoute/>
      <Footer/>
