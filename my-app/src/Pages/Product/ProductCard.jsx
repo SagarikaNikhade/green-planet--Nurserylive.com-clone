@@ -14,6 +14,7 @@ import {
   import React from "react";
   import { Link } from 'react-router-dom';
   import { StarIcon} from '@chakra-ui/icons'
+import ProductRating from './ProductRating';
   
   
   function ProductCard({id,title,price,image,rating}) {
@@ -71,21 +72,12 @@ import {
             </Flex>
 
             <HStack>
-            <Icon as={StarIcon} h={5} w={5} alignSelf={'center'} />
-            <Box
-                fontSize="xl"
-                fontWeight="semibold"
-                as="h3"
-                lineHeight="tight"
-                isTruncated>
-                {rating}
-              </Box>
+            <ProductRating rating={rating} />
             </HStack>
 
             <Flex justifyContent="space-between" alignContent="center">
-              {/* <Rating rating={rating}  /> */}
               <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-                {price}
+                Rs.{price}
               </Box>
             </Flex>
           </Box>

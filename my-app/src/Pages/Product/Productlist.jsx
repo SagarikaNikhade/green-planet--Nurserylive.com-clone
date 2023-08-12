@@ -10,6 +10,7 @@ const ProductList = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const {products} = useSelector((store)=>store.productReducer);
+  console.log({products})
   // console.log(searchParams.getAll("category"));
 
   let obj={

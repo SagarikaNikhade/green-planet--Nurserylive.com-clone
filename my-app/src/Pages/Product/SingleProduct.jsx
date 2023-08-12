@@ -13,10 +13,12 @@ SimpleGrid,
 StackDivider,
 useColorModeValue,
 VisuallyHidden,
+useToast,
 List,
 ListItem,} from '@chakra-ui/react'
 import { useState, useEffect, } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import ProductRating from './ProductRating';
 // import { getSingleProducts } from '../../Redux/productReducer.js/action';
 // import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios";
@@ -26,28 +28,11 @@ import styled from "styled-components";
 
 const SingleProduct = () => {
     const [data, setData] = useState({})
+    const toast=useToast()
     // const dispatch = useDispatch();
     // const location = useLocation();
     // const x = useSelector((store)=>store.productReducer);
     const { id } = useParams()
-
-    const handleAlert = () =>{
-    //     <Alert
-    //   status='success'
-    //   variant='subtle'
-    //   flexDirection='column'
-    //   alignItems='center'
-    //   justifyContent='center'
-    //   textAlign='center'
-    //   height='200px'
-    // >
-    //   <AlertIcon boxSize='40px' mr={0} />
-    //   <AlertTitle mt={4} mb={1} fontSize='lg'>
-    //     Application submitted!
-    //   </AlertTitle>
-    // </Alert>
-    alert(" hbc yerg")
-      }
 
     useEffect(() => {
         axios.get(`http://localhost:8080/plants/${id}`)
@@ -63,6 +48,14 @@ const SingleProduct = () => {
       let product = JSON.parse(localStorage.getItem("cart")) || [];
       product.push(data);
       localStorage.setItem("cart",JSON.stringify(product));
+
+      toast({
+        title: 'Added Product Successfully',
+        description: "Your item is added to cart",
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
     }
     //     useEffect(()=>{
     //         dispatch(getSingleProducts());
@@ -88,13 +81,12 @@ const SingleProduct = () => {
                 <GridItem>
                     <Box maxW='32rem' border='0px solid black'>
                         <Heading a mb={4}>{data.title}</Heading>
-                        <Text fontSize='xl'>{data.price}</Text>
+                        <Text fontSize='xl'>Rs.{data.price}</Text>
                         <br/>
 
                         <HStack>
-            <Icon as={StarIcon} h={5} w={5} alignSelf={'center'} />
             <Box>
-                {data.rating}
+            <ProductRating rating={data.rating} />
               </Box>
             </HStack>
             <br/>
