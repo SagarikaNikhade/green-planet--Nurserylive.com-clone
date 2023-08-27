@@ -10,10 +10,39 @@ import {
   Button,
   Heading,
   Text,
-  useColorModeValue,
+  useColorModeValue,useToast,
 } from '@chakra-ui/react';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { loginUser } from '../Redux/AuthReducer/action';
 
 export default function Login() {
+  const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("");
+    const location = useLocation();
+    const navigate = useNavigate()
+    const {auth} = useSelector((store)=> store.authReducer)
+    const dispatch = useDispatch()
+    const toast=useToast()
+
+    const handleSubmit = (e) =>{
+      e.preventDefault();
+      const userData = {
+          email,password
+      }
+      dispatch(loginUser(userData)).then(()=>navigate(location.state))
+      console.log(userData)
+      setEmail(" ");
+      setPassword(" ");
+      toast({
+        title: 'Log In Sucessfully !!',
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      })
+  }
+
   return (
     <Flex
       minH={'100vh'}
@@ -37,11 +66,11 @@ export default function Login() {
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email" placeholder='Email' name="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input type="password" />
+              <Input type="password" placeholder='Password' name="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -56,7 +85,9 @@ export default function Login() {
                 color={'white'}
                 _hover={{
                   bg: 'blue.500',
-                }}>
+                }}
+                onClick={handleSubmit}
+                >
                 Login in
               </Button>
               

@@ -16,9 +16,35 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../Redux/AuthReducer/action';
+
+const initialState = {
+  first_name : "",
+  last_name : "",
+  email : "",
+  password : "",
+}
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
+  const [register , setRegister] = useState(initialState)
+ const dispatch = useDispatch()
+  
+ const handleChange = (e) =>{
+  const {name ,value} = e.target;
+
+  setRegister((prev)=>{
+    return {...prev,[name]:value}
+  })
+ }
+ const handleSubmit = (e) =>{
+    e.preventDefault()
+    console.log(register)
+    dispatch(registerUser(register))
+    setRegister(initialState)
+    window.location.href="/login"
+ }
 
   return (
     <Flex
@@ -47,24 +73,24 @@ export default function Signup() {
               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+                  <Input type="text" placeholder='First Name' name="first_name" value={register.first_name} onChange={(e)=>{handleChange(e)}}/>
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName">
                   <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                  <Input type="text" placeholder='Last Name' name="last_name" value={register.last_name} onChange={(e)=>{handleChange(e)}} />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email" placeholder='Email' name="email" value={register.email} onChange={(e)=>{handleChange(e)}} />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
+                <Input type={showPassword ? 'text' : 'password'} placeholder='Password' name="password" value={register.password} onChange={(e)=>{handleChange(e)}} />
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -84,7 +110,9 @@ export default function Signup() {
                 color={'white'}
                 _hover={{
                   bg: 'blue.500',
-                }}>
+                }}
+                onClick={handleSubmit}
+                >
                 Sign up
               </Button>
             </Stack>
