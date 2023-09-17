@@ -1,6 +1,7 @@
 import './App.css';
 import Footer from './components/Navbar/Footer';
 import Navbar from "./components/Navbar/navbar";
+import Checkout from './Pages/Cart/Checkout';
 import { MainRoute } from './Pages/MainRoute';
 // import image from "./components/img/BackgroundImg.png"; 
 

@@ -1,77 +1,179 @@
 import {
-    Button,
-    Flex,
-    Heading,
-    Link,
-    Stack,
-    Text,
-    useColorModeValue as mode,
-  } from '@chakra-ui/react'
-  import { FaArrowRight } from 'react-icons/fa'
-  import { useState } from 'react';
-  // import { Link} from "react-router-dom";
-//   import { formatPrice } from './PriceTag'
-  
-  const OrderSummaryItem = ({ label, value, children }) => {
-   const handleAlert = () =>{
-    alert("Order ")
-   }
-    return (
-      <Flex justify="space-between" fontSize="sm">
-        <Text fontWeight="medium" color={mode('gray.600', 'gray.400')}>
-          {label}
-        </Text>
-        {value ? <Text fontWeight="medium">{value}</Text> : children}
-        <Text fontWeight="medium">{value}</Text>
-      </Flex>
-    )
-  }
-  
-  export const CartOrderSummary = ({id,title,price,image,rating}) => {
-    const addCart = JSON.parse(localStorage.getItem("cart")) || [];
-    const [data , setData] = useState(addCart)
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+  FormControl,
+  FormLabel,
+  formData,
+  Input,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  Divider,
+  useToast,
+  useColorModeValue as mode,
+} from '@chakra-ui/react'
+import { FaArrowRight } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-    const [number, setNumber] = useState(1); //number of item
+const OrderSummaryItem = ({ label, value, children }) => {
 
-    const updateQuantity = (id, value) => {
-      addCart.map((item) => item.id === id) &&
-        setNumber((prevState) => prevState + value);
-    };
+  return (
+    <Flex justify="space-between" fontSize="sm">
+      <Text fontWeight="medium" color={mode('gray.600', 'gray.400')}>
+        {label}
+      </Text>
+      {value ? <Text fontWeight="medium">{value}</Text> : children}
+      <Text fontWeight="medium">{value}</Text>
+    </Flex>
+  )
+}
 
-   let total = 0;
-   for(let i=0;i<data.length;i++){
-    total += (data[i].price) * number
-   }
-   console.log(total);
+export const CartOrderSummary = ({ total }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toast = useToast();
 
-    return (
-      <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
-        <Heading size="md">Order Summary</Heading>
-  
-        <Stack spacing="6">
-          {/* <OrderSummaryItem label="Subtotal" value={formatPrice(597)} /> */}
-          <OrderSummaryItem label="Price Details">
-            <Text>
+  const initialFormData = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    address: '',
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+
+  console.log("total", total)
+
+  const handleSubmit = () => {
+    toast({
+      title: 'Payment Successful',
+      description: 'Your payment was processed successfully.',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
+    setIsOpen(false);
+  };
+
+  return (
+    <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
+      <Heading size="md">Order Summary</Heading>
+
+      <Stack spacing="6">
+        {/* <OrderSummaryItem label="Subtotal" value={formatPrice(597)} /> */}
+        <OrderSummaryItem label="Price Details">
+          <Text>
             ₹ {total}
-            </Text>
-          </OrderSummaryItem>
-          <OrderSummaryItem label="Delivery Charges">
-            <Text>
+          </Text>
+        </OrderSummaryItem>
+        <OrderSummaryItem label="Delivery Charges">
+          <Text>
             ₹ 49.99
-            </Text>
-          </OrderSummaryItem>
-          <Flex justify="space-between">
-            <Text fontSize="lg" fontWeight="semibold">
-              Total
-            </Text>
-            <Text fontSize="lg" fontWeight="extrabold">
+          </Text>
+        </OrderSummaryItem>
+        <Flex justify="space-between">
+          <Text fontSize="lg" fontWeight="semibold">
+            Total
+          </Text>
+          <Text fontSize="lg" fontWeight="extrabold">
             ₹ {total + 49.99}
-            </Text>
-          </Flex>
-        </Stack>
-        <Button backgroundColor='#ff6b6b' size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+          </Text>
+        </Flex>
+      </Stack>
+      {/* <Button backgroundColor='#ff6b6b' size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+          Checkout
+        </Button> */}
+      <Box py={8}>
+        <Button
+          colorScheme="blue"
+          onClick={() => setIsOpen(true)}
+          backgroundColor='#ff6b6b'
+          size="lg" fontSize="md" rightIcon={<FaArrowRight />}
+        >
           Checkout
         </Button>
-      </Stack>
-    )
-  }
+        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Payment Information</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <form onSubmit={handleSubmit}>
+        <Stack spacing={4}>
+          <FormControl>
+            <FormLabel>First Name</FormLabel>
+            <Input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={(e)=>setFormData(e.target.value)}
+              required
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Email</FormLabel>
+            <Input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={(e)=>setFormData(e.target.value)}
+              required
+            />
+          </FormControl>
+          <Divider />
+          <FormControl>
+            <FormLabel>Card Number</FormLabel>
+            <Input
+              type="text"
+              name="cardNumber"
+              value={formData.cardNumber}
+              onChange={(e)=>setFormData(e.target.value)}
+              required
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Expiration Date</FormLabel>
+            <Input
+              type="text"
+              name="expirationDate"
+              value={formData.expirationDate}
+              onChange={(e)=>setFormData(e.target.value)}
+              required
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>CVV</FormLabel>
+            <Input
+              type="text"
+              name="cvv"
+              value={formData.cvv}
+              onChange={(e)=>setFormData(e.target.value)}
+              required
+            />
+          </FormControl>
+        </Stack>
+        <Button
+          type="submit"
+          mt={6}
+          colorScheme="blue"
+          isFullWidth
+          bgColor={mode('blue.500', 'blue.400')}
+          color={mode('white', 'gray.900')}
+        >
+          Place Order
+        </Button>
+      </form>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      </Box>
+    </Stack>
+  )
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Slideshow } from './Slideshow';
-import { Center,Image, Box,} from '@chakra-ui/react';
+import { Center,Image, Box,Text} from '@chakra-ui/react';
 import styled from 'styled-components';
 import GridBox from './GridBox';
 import Video from './Video';
@@ -17,12 +17,44 @@ const HomePage = () => {
         <Slideshow />
       </Center>
 
+
       <Center>
-        <Box border='1px solid white' mt='30px'>
-          <h2 style={{ color: 'white', fontFamily: 'cabin sans-serif', fontSize: '20px', fontWeight: '600' }}>Happiness is availing great offers on Nurserylive App!</h2>
-          <Image h='35.5px' src='https://www.freepnglogos.com/uploads/app-store-logo-png/google-play-and-apple-app-store-logos-22.png' alt='playstore' />
-        </Box>
-      </Center>
+  <Box 
+    border='0px solid white' 
+    mt='30px' 
+    bgGradient="linear(to-r, green.500, #8dd15a)"
+    p="20px"
+    rounded="md"
+    boxShadow="lg"
+  >
+    <h2 style={{ 
+      color: 'white', 
+      fontFamily: 'Cabin, sans-serif', 
+      fontSize: '24px', 
+      fontWeight: '600', 
+      textAlign: 'center' 
+    }}>
+      Discover Joy in Savings!
+    </h2>
+    <Text 
+      color="white" 
+      fontSize="16px" 
+      mt="10px" 
+      textAlign="center"
+    >
+      Unlock happiness with amazing offers on the Green Planet!
+    </Text>
+    <Image 
+      src='https://www.freepnglogos.com/uploads/app-store-logo-png/google-play-and-apple-app-store-logos-22.png' 
+      alt='playstore' 
+      h='auto' 
+      maxH='40px' 
+      mx="auto" 
+      mt="20px"
+    />
+  </Box>
+</Center>
+
        {/* GridBox */}
        <Center>
        <GridBox/>

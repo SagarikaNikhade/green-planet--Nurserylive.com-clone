@@ -25,14 +25,28 @@ import axios from "axios";
 import { StarIcon} from '@chakra-ui/icons'
 import { MdLocalShipping } from 'react-icons/md';
 import styled from "styled-components";
+import {useDispatch, useSelector} from "react-redux";
+import { addToCart } from '../../Redux/productReducer.js/action';
 
 const SingleProduct = () => {
     const [data, setData] = useState({})
     const toast=useToast()
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     // const location = useLocation();
     // const x = useSelector((store)=>store.productReducer);
     const { id } = useParams()
+
+    const handleAddToCart = (image,title,price,category,) =>{
+      console.log(image,title,price,category)
+        dispatch(addToCart(image,title,price,category))
+        toast({
+            title: 'Added Product Successfully',
+            description: "Your item is added to cart",
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+          })
+    }
 
     useEffect(() => {
         axios.get(`http://localhost:8080/plants/${id}`)
@@ -41,26 +55,8 @@ const SingleProduct = () => {
             }).catch((err) => {
                 console.log(err)
             })
-    }, [])
+    }, [id])
 
- 
-    const handleAddToCart = () =>{
-      let product = JSON.parse(localStorage.getItem("cart")) || [];
-      product.push(data);
-      localStorage.setItem("cart",JSON.stringify(product));
-
-      toast({
-        title: 'Added Product Successfully',
-        description: "Your item is added to cart",
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-      })
-    }
-    //     useEffect(()=>{
-    //         dispatch(getSingleProducts());
-    //     },[location.search])
-    //    console.log(x)
     return (
         <DIV>
             <Center>
@@ -107,7 +103,7 @@ const SingleProduct = () => {
               <List spacing={2}>
                 <ListItem>
                   <Text as={'span'} fontWeight={'bold'}>
-                  Common Name:
+                  Common title,category:
                   </Text>{' '}
                   {data.common}
                 </ListItem>
@@ -152,7 +148,7 @@ const SingleProduct = () => {
               transform: 'translateY(2px)',
               boxShadow: 'lg',
             }}
-            onClick={handleAddToCart}
+            onClick={() => handleAddToCart(data.image, data.title, data.price,data.category,)}
             >
             Add to cart
           </Button>
@@ -175,10 +171,10 @@ const SingleProduct = () => {
 export default SingleProduct
 
 const DIV = styled.div`
- @media (max-width: 710px){
-  Grid{
-display:flex;
-flex-direction:column;
+  @media (max-width: 710px){
+    Grid {
+      display: flex;
+      flex-direction: column;
+    }
   }
- }
 `;

@@ -52,3 +52,20 @@ export const editProduct = (dataObj , id) => (dispatch) =>{
             dispatch({ type: PRODUCT_FAILURE })
         })
 }
+
+
+export const addToCart = (image, title, price,category) => (dispatch) => {
+    const cartData = { image, title, price,category, quantity: 1, total: price };
+  
+    dispatch({ type: PRODUCT_REQUEST });
+  
+    axios
+      .post('http://localhost:8080/cart', cartData)
+      .then((res) => {
+        console.log('cart', res);
+        dispatch({ type: ADD_PRODUCT_SUCCESS });
+      })
+      .catch((err) => {
+        dispatch({ type: PRODUCT_FAILURE });
+      });
+  };

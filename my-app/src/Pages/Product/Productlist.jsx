@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import styled from "styled-components";
 import ProductCard from './ProductCard';
 import {useLocation, useSearchParams} from "react-router-dom";
@@ -12,6 +12,7 @@ const ProductList = () => {
   const {products} = useSelector((store)=>store.productReducer);
   console.log({products})
   // console.log(searchParams.getAll("category"));
+  
 
   let obj={
       params:{

@@ -1,26 +1,23 @@
 import { Button, CloseButton, Flex, Link, useColorModeValue, Text } from '@chakra-ui/react';
 import { PriceTag } from './PriceTag';
 import { CartProductMeta } from './CartProductMeta';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { deleteCart, getCart, updateCart, updateCartDec } from '../../Redux/cartReducer.js/action'
 
-export const CartItem = ({ title, price, image, category, isGiftWrapping }) => {
-  const addCart = JSON.parse(localStorage.getItem("cart")) || [];
-  const [data, setData] = useState(addCart);
-  const [number, setNumber] = useState(localStorage.getItem("count") || 1);
+export const CartItem = ({ id,title, price,total, quantity,image, category, isGiftWrapping }) => {
+  const dispatch = useDispatch()
 
-  const updateQuantity = (id, value) => {
-    const updatedCart = data.map(item => item.title === title ? { ...item, quantity: item.quantity + value } : item);
-    setData(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    setNumber(prevNumber => prevNumber + value);
-    localStorage.setItem("count", Number(localStorage.getItem("count")) + value);
-  };
-
-  const deleteItem = () => {
-    const updatedCart = data.filter(item => item.title !== title);
-    setData(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-  };
+  const handleDelete=(id)=>{
+    dispatch(deleteCart(id)).then(()=>dispatch(getCart))
+  }
+  const handleIncrease=(id,total,price,quantity)=>{
+    console.log(id)
+    dispatch(updateCart(id,total,price,quantity)).then(()=>dispatch(getCart))
+  }
+  const handleDecrease=(id,total,price,quantity)=>{
+    console.log(id)
+    dispatch(updateCartDec(id,total,price,quantity)).then(()=>dispatch(getCart))
+  }
 
   return (
     <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center">
@@ -32,22 +29,22 @@ export const CartItem = ({ title, price, image, category, isGiftWrapping }) => {
       />
       {/* Desktop */}
       <Flex width="full" justify="space-between" display={{ base: 'none', md: 'flex' }}>
-        <Button backgroundColor='#ff6b6b' onClick={() => updateQuantity(title, 1)}>+</Button>
-        <Text>{number}</Text>
-        <Button backgroundColor='#ff6b6b' onClick={() => updateQuantity(title, -1)} isDisabled={number === "0"}>-</Button>
-        <PriceTag price={price} />
-        <CloseButton aria-label={`Delete ${title} from cart`} onClick={deleteItem} />
+        <Button backgroundColor='#ff6b6b' onClick={()=>handleIncrease(id,total,price,quantity)} isDisabled={quantity===5}>+</Button>
+        <Text>{quantity}</Text>
+        <Button backgroundColor='#ff6b6b' onClick={()=>handleDecrease(id,total,price,quantity)} isDisabled={quantity===1}>-</Button>
+        <PriceTag price={total} />
+        <CloseButton aria-label={`Delete ${title} from cart`} onClick={()=>handleDelete(id)} />
       </Flex>
 
       {/* Mobile */}
       <Flex mt="4" align="center" width="full" justify="space-between" display={{ base: 'flex', md: 'none' }}>
-        <Link fontSize="sm" textDecor="underline" onClick={deleteItem}>
+        <Link fontSize="sm" textDecor="underline" onClick={()=>handleDelete(id)}>
           Delete
         </Link>
-        <Button backgroundColor='#ff6b6b' onClick={() => updateQuantity(title, 1)}>+</Button>
-        <Text>{number}</Text>
-        <Button backgroundColor='#ff6b6b' onClick={() => updateQuantity(title, -1)} isDisabled={number === "0"}>-</Button>
-        <PriceTag price={price} />
+        <Button backgroundColor='#ff6b6b' isDisabled={quantity===5} onClick={()=>handleIncrease(id,total,price,quantity)}>+</Button>
+        <Text>{quantity}</Text>
+        <Button backgroundColor='#ff6b6b' onClick={()=>handleDecrease(id,total,price,quantity)} isDisabled={quantity===1}>-</Button>
+        <PriceTag price={total} />
       </Flex>
     </Flex>
   );

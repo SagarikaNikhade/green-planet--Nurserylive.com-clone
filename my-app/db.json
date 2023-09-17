@@ -302,6 +302,33 @@
       "email": "sagarika@gmail.com",
       "password": "sagarika@123",
       "id": 3
+    },
+    {
+      "first_name": "Mani",
+      "last_name": "Sharma",
+      "email": "mani@gmail.com",
+      "password": "mani@123",
+      "id": 4
+    }
+  ],
+  "cart": [
+    {
+      "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-g-tulip-queen-of-the-night-flower-bulbs-719902_600x600.jpg?v=1679751793",
+      "title": "Tulip Queen of the night (Black) - Bulbs (set of 5)",
+      "price": 459,
+      "category": "bulb",
+      "quantity": 2,
+      "total": 918,
+      "id": 5
+    },
+    {
+      "image": "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-seeds-radish-red-round-desi-vegetable-seeds-16969238020236_600x600.jpg?v=1634204738",
+      "title": "Radish Red Round - Desi Vegetable Seeds",
+      "price": 27,
+      "category": "seed",
+      "quantity": 2,
+      "total": 54,
+      "id": 6
     }
   ]
 }
