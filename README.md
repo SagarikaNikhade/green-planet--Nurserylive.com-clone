@@ -32,7 +32,3 @@ Green-Planet is clone of Nurserylive, is a plant nursery store that provides wid
 ***
 
 
-## Images of the Green-Planet 
-
-## Landing Page
-![LandingPage1]("C:\Users\HP\Pictures\Screenshots\Screenshot (536).png")
