@@ -2,7 +2,7 @@
 
 Green-Planet is clone of Nurserylive, is a plant nursery store that provides wide range of natural plants and accessories products.
 
-## Deployed Link: 
+## Deployed Link: https://storied-moonbeam-229d9d.netlify.app
 
 ***
 ## Tech Stacks I have used  is:-
@@ -30,3 +30,9 @@ Green-Planet is clone of Nurserylive, is a plant nursery store that provides wid
 
 
 ***
+
+
+## Images of the Green-Planet 
+
+## Landing Page
+![LandingPage1]("C:\Users\HP\Pictures\Screenshots\Screenshot (536).png")
