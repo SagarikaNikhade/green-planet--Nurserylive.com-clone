@@ -4,7 +4,7 @@ import axios from "axios";
 export const addProduct = (data) => (dispatch) => {
     dispatch({ type: PRODUCT_REQUEST })
     axios
-        .post("http://localhost:8080/plants", data)
+        .post("https://drab-pink-prawn-belt.cyclic.cloud/plants", data)
         .then((res) => {
             // console.log(res.data)
             dispatch({ type: ADD_PRODUCT_SUCCESS})
@@ -17,7 +17,7 @@ export const addProduct = (data) => (dispatch) => {
 export const getProducts = (paramobj) => (dispatch) =>{
     dispatch({ type: PRODUCT_REQUEST })
     axios
-        .get(" http://localhost:8080/plants", paramobj)
+        .get(" https://drab-pink-prawn-belt.cyclic.cloud/plants", paramobj)
         .then((res) => {
             // console.log(res.data)
             dispatch({ type: GET_PRODUCT_SUCCESS , payload:res.data})
@@ -43,7 +43,7 @@ export const getProducts = (paramobj) => (dispatch) =>{
 export const editProduct = (dataObj , id) => (dispatch) =>{
     dispatch({ type: PRODUCT_REQUEST })
     return axios
-        .patch(`http://localhost:8080/plants/${id}`, dataObj)
+        .patch(`https://drab-pink-prawn-belt.cyclic.cloud/plants/${id}`, dataObj)
         .then((res) => {
              console.log(res.data)
             dispatch({ type: PATCH_PRODUCT_SUCCESS})
@@ -60,7 +60,7 @@ export const addToCart = (image, title, price,category) => (dispatch) => {
     dispatch({ type: PRODUCT_REQUEST });
   
     axios
-      .post('http://localhost:8080/cart', cartData)
+      .post('https://drab-pink-prawn-belt.cyclic.cloud/cart', cartData)
       .then((res) => {
         console.log('cart', res);
         dispatch({ type: ADD_PRODUCT_SUCCESS });

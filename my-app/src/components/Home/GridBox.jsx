@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Grid, GridItem, Button } from '@chakra-ui/react';
 import styled from 'styled-components';
+import {Link} from "react-router-dom"
 
 const GridBox = () => {
   return (
@@ -21,7 +22,7 @@ const GridBox = () => {
               </p>
               <Button bg='#ff6b6b' color='white' border={'none'} h='50px' w='137px'
                 fontFamily='cabin sans-serif' fontSize='18px' fontWeight='600'>
-                Shop Now
+                <Link to="/product">Shop Now</Link>
               </Button>
             </div>
           </GridItem>
@@ -33,7 +34,7 @@ const GridBox = () => {
               </p>
               <Button bg='#ff6b6b' color='white' border={'none'} h='50px' w='137px'
                 fontFamily='cabin sans-serif' fontSize='18px' fontWeight='600'>
-                Shop Now
+                <Link to="/product">Shop Now</Link>
               </Button>
             </div>
           </GridItem>
@@ -46,7 +47,7 @@ const GridBox = () => {
               </p>
               <Button bg='#ff6b6b' color='white' border={'none'} h='50px' w='137px'
                 fontFamily='cabin sans-serif' fontSize='18px' fontWeight='600'>
-                Shop Now
+                <Link to="/product">Shop Now</Link>
               </Button>
             </div>
           </GridItem>
@@ -58,7 +59,7 @@ const GridBox = () => {
               </p>
               <Button bg='#ff6b6b' color='white' border={'none'} h='50px' w='137px'
                 fontFamily='cabin sans-serif' fontSize='18px' fontWeight='600'>
-                Shop Now
+                <Link to="/product">Shop Now</Link>
               </Button>
             </div>
           </GridItem>

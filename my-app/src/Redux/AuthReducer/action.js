@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const registerUser = (data) => (dispatch) =>{
     dispatch({type:REQUEST})
-    axios.post(` http://localhost:8080/users`,data)
+    axios.post(` https://drab-pink-prawn-belt.cyclic.cloud/users`,data)
     .then((res)=>{
         dispatch({type:REGISTER_SUCCESS})
         console.log(res)
@@ -16,7 +16,7 @@ export const registerUser = (data) => (dispatch) =>{
 // login
 export const loginUser = (userData) => (dispatch) =>{
     dispatch({type:REQUEST})
-    return axios.get(` http://localhost:8080/users`,userData)
+    return axios.get(` https://drab-pink-prawn-belt.cyclic.cloud/users`,userData)
     .then((res)=>{
         const user = res.data
         const sucessLogin = user.find((el)=> el.email === userData.email &&  el.password === userData.password)
