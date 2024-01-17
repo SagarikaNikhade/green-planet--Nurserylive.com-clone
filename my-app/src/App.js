@@ -6,6 +6,7 @@ import { MainRoute } from './Pages/MainRoute';
 function App() {
   return (
     <div className="App" style={{ backgroundColor: "#8dd15a"}}>
+      <h1>Hello</h1>
      <Navbar/>
      <MainRoute/>
      <Footer/>
