@@ -6,6 +6,7 @@ import { Cart } from "./Cart/Cart";
 import Login from "../context/Login";
 import Signup from "../context/Signup";
 import Corporate from "./Corporate/Corporate";
+import Export from "./Export/Export";
 
 export const MainRoute = () => {
     return (
@@ -17,6 +18,7 @@ export const MainRoute = () => {
             <Route path="/signup" element={<Signup/>} />
             <Route path="/corporate" element={<Corporate/>} />
             <Route path="/product/:id" element={<SingleProduct/>} />
+            <Route path="/expert" element={<Export/>} />
             <Route path="*" element={<h4>404 Page not Found</h4>} />
         </Routes>
     )

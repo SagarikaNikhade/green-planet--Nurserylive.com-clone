@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Box, Grid, GridItem, Heading, Text,Image,VStack,Center,Button
 } from '@chakra-ui/react';
+import { Car, ShoppingCart, Star } from 'lucide-react';
 
 const Corporate = () => {
   return (
@@ -62,11 +63,12 @@ const Corporate = () => {
   boxShadow='rgba(0, 0, 0, 0.24) 0px 3px 8px'
 >
   <VStack>
-    <Image 
+    {/* <Image 
       src="https://cdn.shopify.com/s/files/1/0047/9730/0847/t/31/assets/nurserylivecorporategiftpagecustomize-brand-1662455704466.png?v=1662455715" 
       alt="Gardening" 
       style={{ width: '100px', borderRadius: '50%' }} 
-    />
+    /> */}
+    <Star color="white" size={80} />
     <Text 
       style={{ textDecoration: 'none', color: 'white', fontFamily: 'Cabin, sans-serif', fontSize: '15px', fontWeight: '600' }}
       textAlign="center"
@@ -75,11 +77,12 @@ const Corporate = () => {
     </Text>
   </VStack>
   <VStack>
-    <Image 
+    {/* <Image 
       src="https://cdn.shopify.com/s/files/1/0047/9730/0847/t/31/assets/nurserylivecorporategiftpageallindiadelivery-1662455704459.png?v=1662455711" 
       alt="Gardening" 
       style={{ width: '100px', borderRadius: '50%' }} 
-    />
+    /> */}
+    <Car color="white" size={80} />
     <Text 
       style={{ textDecoration: 'none', color: 'white', fontFamily: 'Cabin, sans-serif', fontSize: '15px', fontWeight: '600' }}
       textAlign="center"
@@ -88,11 +91,12 @@ const Corporate = () => {
     </Text>
   </VStack>
   <VStack>
-    <Image 
+    {/* <Image 
       src="https://cdn.shopify.com/s/files/1/0047/9730/0847/t/31/assets/nurserylivecorporategiftpage6000products-1662455704448.png?v=1662455706" 
       alt="Gardening" 
       style={{ width: '100px', borderRadius: '50%' }} 
-    />
+    /> */}
+    <ShoppingCart color="white" size={80} />
     <Text 
       style={{ textDecoration: 'none', color: 'white', fontFamily: 'Cabin, sans-serif', fontSize: '15px', fontWeight: '600' }}
       textAlign="center"

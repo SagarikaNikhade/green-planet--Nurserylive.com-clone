@@ -12,7 +12,7 @@ import {
 
 export const getCart = (dispatch) => {
   dispatch({ type: CART_REQUEST_PENDING });
-  fetch("https://drab-pink-prawn-belt.cyclic.cloud/cart")
+  fetch("https://green-planet-json.onrender.com/cart")
         .then((res)=>res.json())
         .then((res)=>{
           dispatch({ type: GET_CART_REQUEST_SUCCESS, payload: res })})
@@ -23,7 +23,7 @@ export const updateCart = (id,prevtotal,price,prevquantity) => async (dispatch) 
   let body={quantity:prevquantity+1,total:prevtotal+price}
   dispatch({ type: CART_REQUEST_PENDING });
   try {
-    let res = await axios.patch(`https://drab-pink-prawn-belt.cyclic.cloud/cart/${id}`,body);
+    let res = await axios.patch(`https://green-planet-json.onrender.com/cart/${id}`,body);
     console.log(res);
      dispatch({ type: CART_REQUEST_UPDATEINC});
   } catch (err) {
@@ -35,7 +35,7 @@ export const updateCartDec = (id,prevtotal,price,prevquantity) => async (dispatc
   let body={quantity:prevquantity-1,total:prevtotal-price}
   dispatch({ type: CART_REQUEST_PENDING });
   try {
-    let res = await axios.patch(`https://drab-pink-prawn-belt.cyclic.cloud/cart/${id}`,body);
+    let res = await axios.patch(`https://green-planet-json.onrender.com/cart/${id}`,body);
     console.log(res);
      dispatch({ type: CART_REQUEST_UPDATEDEC});
   } catch (err) {
@@ -48,7 +48,7 @@ export const deleteCart = (id) => async (dispatch) => {
   console.log("ID",id)
   dispatch({ type: CART_REQUEST_PENDING });
   try {
-    let res = await axios.delete(`https://drab-pink-prawn-belt.cyclic.cloud/cart/${id}`);
+    let res = await axios.delete(`https://green-planet-json.onrender.com/cart/${id}`);
     console.log(res);
     dispatch({ type: CART_REQUEST_DELETE});
   } catch (err) {

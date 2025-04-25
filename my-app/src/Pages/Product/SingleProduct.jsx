@@ -49,7 +49,7 @@ const SingleProduct = () => {
     }
 
     useEffect(() => {
-        axios.get(`https://drab-pink-prawn-belt.cyclic.cloud/plants/${id}`)
+        axios.get(`https://green-planet-json.onrender.com/plants/${id}`)
             .then((res) => {
                 setData(res.data)
             }).catch((err) => {
