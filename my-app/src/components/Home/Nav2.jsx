@@ -34,13 +34,13 @@ const Nav2 = () => {
             </RouterLink>
             <RouterLink to="/product">
               <VStack>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtyhTxCkhaT9cq4a7TlgT8TLv_7EQgmFSfhA&usqp=CAU" alt="pubbles" style={{ width: '100px', borderRadius: '50%' }} />
+                <img src="https://nurserylive.com/cdn/shop/products/nurserylive-pebbles-aquarium-pebbles-mix-color-small-1-kg-16969333112972_295x295.jpg?v=1634213477" alt="pubbles" style={{ width: '100px', borderRadius: '50%' }} />
                 <Text style={{ color: 'white', fontFamily: 'cabin sans-serif', fontSize: '15px', fontWeight: '600' }}>PEBBLES</Text>
               </VStack>
             </RouterLink>
             <RouterLink to="/product">
               <VStack>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Y8Uf9-lKac7qr6542Gp-3JTtBVN3DBkb8w&usqp=CAU" alt="pubbles" style={{ width: '100px', borderRadius: '50%' }} />
+                <img src="https://nurserylive.com/cdn/shop/products/nurserylive-seeds-plant-o-boost-special-flower-booster-10-g-16969206431884_295x295.jpg?v=1634226258" alt="pubbles" style={{ width: '100px', borderRadius: '50%' }} />
                 <Text style={{ color: 'white', fontFamily: 'cabin sans-serif', fontSize: '15px', fontWeight: '600' }}>FERTILIZERS</Text>
               </VStack>
             </RouterLink>
