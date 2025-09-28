@@ -22,9 +22,8 @@ import {
   Divider,
   useColorModeValue
 } from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getCurrentUser } from '../../Redux/AuthReducer/action';
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -36,12 +35,12 @@ const Profile = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const toast = useToast();
   const auth = useSelector(store => store.authReducer);
   const cardBg = useColorModeValue('white', 'gray.800');
-  const borderColor = useColorModeValue('gray.200', 'gray.600');
+  // const borderColor = useColorModeValue('gray.200', 'gray.600');
 
   useEffect(() => {
     if (!auth.isInitialized) {

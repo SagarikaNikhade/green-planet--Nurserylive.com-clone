@@ -6,7 +6,6 @@ import {
   GET_ORDERS_SUCCESS,
   GET_ORDER_SUCCESS,
   UPDATE_ORDER_SUCCESS,
-  DELETE_ORDER_SUCCESS
 } from './actionTypes';
 
 // Create axios instance with base URL

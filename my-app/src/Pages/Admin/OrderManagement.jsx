@@ -9,7 +9,6 @@ import {
   Td,
   Text,
   Badge,
-  Button,
   useToast,
   Alert,
   AlertIcon,
@@ -97,8 +96,8 @@ const OrderManagement = () => {
     .reduce((sum, order) => sum + order.totalAmount, 0);
 
   const pendingOrders = orders.filter(order => order.status === 'Pending').length;
-  const shippedOrders = orders.filter(order => order.status === 'Shipped').length;
-  const deliveredOrders = orders.filter(order => order.status === 'Delivered').length;
+  // const shippedOrders = orders.filter(order => order.status === 'Shipped').length;
+  // const deliveredOrders = orders.filter(order => order.status === 'Delivered').length;
 
   if (isLoading) {
     return (

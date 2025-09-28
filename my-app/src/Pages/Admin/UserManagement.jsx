@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Table,
@@ -26,7 +26,7 @@ import {
   CardBody
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllUsers, updateUser, deleteUser, getUserStats } from '../../Redux/adminReducer.js/action';
+import { getAllUsers, updateUser, getUserStats } from '../../Redux/adminReducer.js/action';
 
 const UserManagement = () => {
   const dispatch = useDispatch();
@@ -38,9 +38,9 @@ const UserManagement = () => {
     dispatch(getUserStats());
   }, [dispatch]);
 
-  const loadUsers = async () => {
-    dispatch(getAllUsers());
-  };
+  // const loadUsers = async () => {
+  //   dispatch(getAllUsers());
+  // };
 
   const handleToggleUserStatus = async (userId) => {
     try {
@@ -64,24 +64,24 @@ const UserManagement = () => {
     }
   };
 
-  const handleDeleteUser = async (userId) => {
-    try {
-      await dispatch(deleteUser(userId));
-      toast({
-        title: 'User deleted successfully',
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-      });
-    } catch (error) {
-      toast({
-        title: 'Error deleting user',
-        status: 'error',
-        duration: 3000,
-        isClosable: true,
-      });
-    }
-  };
+  // const handleDeleteUser = async (userId) => {
+  //   try {
+  //     await dispatch(deleteUser(userId));
+  //     toast({
+  //       title: 'User deleted successfully',
+  //       status: 'success',
+  //       duration: 3000,
+  //       isClosable: true,
+  //     });
+  //   } catch (error) {
+  //     toast({
+  //       title: 'Error deleting user',
+  //       status: 'error',
+  //       duration: 3000,
+  //       isClosable: true,
+  //     });
+  //   }
+  // };
 
   const getRoleColor = (role) => {
     switch (role) {

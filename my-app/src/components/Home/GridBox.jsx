@@ -18,7 +18,6 @@ import {
   Sprout, 
   Users,
   ArrowRight,
-  Star,
   Sparkles
 } from 'lucide-react';
 import styled from 'styled-components';

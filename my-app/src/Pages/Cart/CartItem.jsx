@@ -1,4 +1,4 @@
-import { Button, CloseButton, Flex, Link, useColorModeValue, Text } from '@chakra-ui/react';
+import { Button, CloseButton, Flex, Link, Text } from '@chakra-ui/react';
 import { PriceTag } from './PriceTag';
 import { CartProductMeta } from './CartProductMeta';
 import { useDispatch } from 'react-redux'

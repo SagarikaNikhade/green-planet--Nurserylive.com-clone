@@ -12,13 +12,13 @@ import {
 } from '@chakra-ui/react'
 import { CartItem } from './CartItem'
 import { CartOrderSummary } from './CartOrderSummary'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
 import { getCart } from '../../Redux/cartReducer.js/action'
 
 export const Cart = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const data = useSelector(store => store.cartReducer.cart)

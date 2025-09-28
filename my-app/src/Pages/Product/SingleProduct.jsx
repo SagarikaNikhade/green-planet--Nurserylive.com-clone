@@ -1,33 +1,23 @@
-import { Grid, GridItem,  Box,  Center,Icon ,HStack
-, Alert,AlertIcon,AlertTitle,
-chakra,
-Container,
+import { Grid, GridItem,  Box,  Center,HStack,
 Stack,
 Text,
 Image,
-Flex,
-VStack,
 Button,
 Heading,
-SimpleGrid,
-StackDivider,
 useColorModeValue,
-VisuallyHidden,
 useToast,
 List,
 ListItem, Spinner} from '@chakra-ui/react'
 import { useState, useEffect, } from "react";
-import { useLocation, useParams, useNavigate } from "react-router-dom";
+import {  useParams, useNavigate } from "react-router-dom";
 import ProductRating from './ProductRating';
 import { getSingleProduct } from '../../Redux/productReducer.js/action';
 import { addToCart } from '../../Redux/cartReducer.js/action';
 import {useDispatch, useSelector} from "react-redux";
-import { StarIcon} from '@chakra-ui/icons'
 import { MdLocalShipping } from 'react-icons/md';
 import styled from "styled-components";
 
 const SingleProduct = () => {
-    const [data, setData] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [isAddingToCart, setIsAddingToCart] = useState(false)
     const toast = useToast()
@@ -38,7 +28,7 @@ const SingleProduct = () => {
     
     // Move hooks to the top - before any conditional returns
     const yellowColor = useColorModeValue('yellow.500', 'yellow.300')
-    const buttonColor = useColorModeValue('white', 'gray.900')
+    // const buttonColor = useColorModeValue('white', 'gray.900')
 
     const handleAddToCart = async () => {
         // Check if user is authenticated using Redux state

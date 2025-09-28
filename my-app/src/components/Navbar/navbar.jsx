@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Spacer, useDisclosure, Input, Button, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Spacer, useDisclosure, Input } from "@chakra-ui/react";
 import React from "react";
 import NavbarLogo from "./NavbarLogo";
 import NavbarDrawer from "./NavbarDrawer";

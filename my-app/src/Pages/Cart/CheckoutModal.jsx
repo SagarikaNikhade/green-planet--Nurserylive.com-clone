@@ -15,12 +15,10 @@ import {
   HStack,
   Text,
   useToast,
-  Spinner,
   Box,
   Divider,
-  Badge
 } from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { createOrder } from '../../Redux/orderReducer.js/action';
 
 const CheckoutModal = ({ isOpen, onClose, cartItems, total }) => {
@@ -37,7 +35,7 @@ const CheckoutModal = ({ isOpen, onClose, cartItems, total }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const dispatch = useDispatch();
   const toast = useToast();
-  const auth = useSelector(store => store.authReducer);
+  // const auth = useSelector(store => store.authReducer);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

@@ -17,7 +17,7 @@ import {
   AlertIcon
 } from '@chakra-ui/react';
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { loginUser } from '../Redux/AuthReducer/action';
 
@@ -29,7 +29,7 @@ export default function Login() {
   
   const location = useLocation();
   const navigate = useNavigate()
-  const auth = useSelector((store) => store.authReducer)
+  // const auth = useSelector((store) => store.authReducer)
   const dispatch = useDispatch()
   const toast = useToast()
 

@@ -39,7 +39,6 @@ import {
   Spinner,
   Center,
   HStack,
-  VStack
 } from '@chakra-ui/react';
 import { EditIcon, DeleteIcon, AddIcon } from '@chakra-ui/icons';
 import { useDispatch, useSelector } from 'react-redux';

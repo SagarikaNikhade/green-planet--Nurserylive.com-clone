@@ -13,7 +13,6 @@ import {
   import { FiShoppingCart } from 'react-icons/fi';
   import React from "react";
   import { Link } from 'react-router-dom';
-  import { StarIcon} from '@chakra-ui/icons'
 import ProductRating from './ProductRating';
   
   
