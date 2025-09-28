@@ -5,23 +5,11 @@ import {
   Heading,
   Stack,
   Text,
-  FormControl,
-  FormLabel,
-  formData,
-  Input,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  Divider,
-  useToast,
   useColorModeValue as mode,
 } from '@chakra-ui/react'
 import { FaArrowRight } from 'react-icons/fa';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import CheckoutModal from './CheckoutModal';
 
 const OrderSummaryItem = ({ label, value, children }) => {
 
@@ -36,31 +24,8 @@ const OrderSummaryItem = ({ label, value, children }) => {
   )
 }
 
-export const CartOrderSummary = ({ total }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toast = useToast();
-
-  const initialFormData = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-  };
-
-  const [formData, setFormData] = useState(initialFormData);
-
-  console.log("total", total)
-
-  const handleSubmit = () => {
-    toast({
-      title: 'Payment Successful',
-      description: 'Your payment was processed successfully.',
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-    });
-    setIsOpen(false);
-  };
+export const CartOrderSummary = ({ total, cartItems }) => {
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
@@ -87,92 +52,27 @@ export const CartOrderSummary = ({ total }) => {
           </Text>
         </Flex>
       </Stack>
-      {/* <Button backgroundColor='#ff6b6b' size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
-          Checkout
-        </Button> */}
       <Box py={8}>
         <Button
-          colorScheme="blue"
-          onClick={() => setIsOpen(true)}
-          backgroundColor='#ff6b6b'
-          size="lg" fontSize="md" rightIcon={<FaArrowRight />}
+          colorScheme="green"
+          onClick={() => setIsCheckoutOpen(true)}
+          backgroundColor='#32620f'
+          color="white"
+          size="lg" 
+          fontSize="md" 
+          rightIcon={<FaArrowRight />}
+          width="full"
+          _hover={{ backgroundColor: '#2a520c' }}
         >
-          Checkout
+          Proceed to Checkout
         </Button>
-        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Payment Information</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <form onSubmit={handleSubmit}>
-        <Stack spacing={4}>
-          <FormControl>
-            <FormLabel>First Name</FormLabel>
-            <Input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={(e)=>setFormData(e.target.value)}
-              required
-            />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Email</FormLabel>
-            <Input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={(e)=>setFormData(e.target.value)}
-              required
-            />
-          </FormControl>
-          <Divider />
-          <FormControl>
-            <FormLabel>Card Number</FormLabel>
-            <Input
-              type="text"
-              name="cardNumber"
-              value={formData.cardNumber}
-              onChange={(e)=>setFormData(e.target.value)}
-              required
-            />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Expiration Date</FormLabel>
-            <Input
-              type="text"
-              name="expirationDate"
-              value={formData.expirationDate}
-              onChange={(e)=>setFormData(e.target.value)}
-              required
-            />
-          </FormControl>
-          <FormControl>
-            <FormLabel>CVV</FormLabel>
-            <Input
-              type="text"
-              name="cvv"
-              value={formData.cvv}
-              onChange={(e)=>setFormData(e.target.value)}
-              required
-            />
-          </FormControl>
-        </Stack>
-        <Button
-          type="submit"
-          mt={6}
-          colorScheme="blue"
-          isFullWidth
-          bgColor={mode('blue.500', 'blue.400')}
-          color={mode('white', 'gray.900')}
-        >
-          Place Order
-        </Button>
-      </form>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
+        
+        <CheckoutModal
+          isOpen={isCheckoutOpen}
+          onClose={() => setIsCheckoutOpen(false)}
+          cartItems={cartItems}
+          total={total + 49.99}
+        />
       </Box>
     </Stack>
   )

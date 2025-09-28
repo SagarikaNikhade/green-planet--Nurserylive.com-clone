@@ -10,7 +10,11 @@ import {
   Button,
   Heading,
   Text,
-  useColorModeValue,useToast,
+  useColorModeValue,
+  useToast,
+  Spinner,
+  Alert,
+  AlertIcon
 } from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,29 +22,63 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { loginUser } from '../Redux/AuthReducer/action';
 
 export default function Login() {
-  const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("");
-    const location = useLocation();
-    const navigate = useNavigate()
-    const {auth} = useSelector((store)=> store.authReducer)
-    const dispatch = useDispatch()
-    const toast=useToast()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  
+  const location = useLocation();
+  const navigate = useNavigate()
+  const auth = useSelector((store) => store.authReducer)
+  const dispatch = useDispatch()
+  const toast = useToast()
 
-    const handleSubmit = (e) =>{
-      e.preventDefault();
-      const userData = {
-          email,password
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+
+    const userData = {
+      email,
+      password
+    }
+
+    try {
+      const result = await dispatch(loginUser(userData));
+      
+      if (result.success) {
+        toast({
+          title: 'Login Successful!',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        });
+        
+        // Navigate to intended page or home
+        const from = location.state?.from?.pathname || '/';
+        navigate(from, { replace: true });
+      } else {
+        setError(result.message || 'Login failed');
+        toast({
+          title: 'Login Failed',
+          description: result.message,
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
       }
-      dispatch(loginUser(userData)).then(()=>navigate(location.state))
-      console.log(userData)
-      setEmail(" ");
-      setPassword(" ");
+    } catch (error) {
+      setError('An error occurred during login');
       toast({
-        title: 'Log In Sucessfully !!',
-        status: 'success',
-        duration: 2000,
+        title: 'Login Error',
+        description: 'An error occurred during login',
+        status: 'error',
+        duration: 3000,
         isClosable: true,
-      })
+      });
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -64,14 +102,37 @@ export default function Login() {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            <FormControl id="email">
+            {error && (
+              <Alert status="error">
+                <AlertIcon />
+                {error}
+              </Alert>
+            )}
+            
+            <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" placeholder='Email' name="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+              <Input 
+                type="email" 
+                placeholder='Email' 
+                name="email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)}
+                isDisabled={isLoading}
+              />
             </FormControl>
-            <FormControl id="password">
+            
+            <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
-              <Input type="password" placeholder='Password' name="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+              <Input 
+                type="password" 
+                placeholder='Password' 
+                name="password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)}
+                isDisabled={isLoading}
+              />
             </FormControl>
+            
             <Stack spacing={10}>
               <Stack
                 direction={{ base: 'column', sm: 'row' }}
@@ -80,6 +141,7 @@ export default function Login() {
                 <Checkbox>Remember me</Checkbox>
                 <Link color={'blue.400'}>Forgot password?</Link>
               </Stack>
+              
               <Button
                 bg={'blue.400'}
                 color={'white'}
@@ -87,16 +149,18 @@ export default function Login() {
                   bg: 'blue.500',
                 }}
                 onClick={handleSubmit}
-                >
-                Login in
+                isLoading={isLoading}
+                loadingText="Signing in..."
+                isDisabled={!email || !password}
+              >
+                {isLoading ? <Spinner size="sm" /> : 'Sign In'}
               </Button>
               
               <Stack pt={6}>
-              <Text align={'center'}>
-                Already have an account? <Link color={'blue.400'} href="/signup">Sign Up</Link>
-              </Text>
-            </Stack>
-
+                <Text align={'center'}>
+                  Don't have an account? <Link color={'blue.400'} href="/signup">Sign Up</Link>
+                </Text>
+              </Stack>
             </Stack>
           </Stack>
         </Box>

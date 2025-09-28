@@ -17,17 +17,23 @@ import {
 import ProductRating from './ProductRating';
   
   
-  function ProductCard({id,title,price,image,rating}) {
+  function ProductCard({_id,title,price,image,rating}) {
     return (
-      <Link to={`/product/${id}`}>
-      <Flex p={50} w="full" alignItems="center" justifyContent="center">
+      <Link to={`/product/${_id}`}>
+      <Flex p={4} w="full" alignItems="center" justifyContent="center">
         <Box
-          bg={useColorModeValue('white', 'gray.800')}
-          maxW="sm"
+          bg="white"
+          w="full"
+          maxW="300px"
           borderWidth="1px"
           rounded="lg"
           shadow="lg"
-          position="relative">
+          position="relative"
+          _hover={{
+            transform: 'translateY(-4px)',
+            boxShadow: 'xl'
+          }}
+          transition="all 0.3s ease">
           
             <Circle
               size="10px"
@@ -42,6 +48,9 @@ import ProductRating from './ProductRating';
             src={image}
             alt={`Picture of ${title}`}
             roundedTop="lg"
+            w="full"
+            h="200px"
+            objectFit="cover"
           />
   
           <Box p="6">

@@ -7,6 +7,9 @@ import Login from "../context/Login";
 import Signup from "../context/Signup";
 import Corporate from "./Corporate/Corporate";
 import Export from "./Export/Export";
+import AdminDashboard from "./Admin/AdminDashboard";
+import Orders from "./Orders/Orders";
+import Profile from "./Profile/Profile";
 
 export const MainRoute = () => {
     return (
@@ -19,6 +22,9 @@ export const MainRoute = () => {
             <Route path="/corporate" element={<Corporate/>} />
             <Route path="/product/:id" element={<SingleProduct/>} />
             <Route path="/expert" element={<Export/>} />
+            <Route path="/admin" element={<AdminDashboard/>} />
+            <Route path="/orders" element={<Orders/>} />
+            <Route path="/profile" element={<Profile/>} />
             <Route path="*" element={<h4>404 Page not Found</h4>} />
         </Routes>
     )

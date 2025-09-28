@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { FiGift } from 'react-icons/fi';
 
-export const CartProductMeta = ({ title, category, image, isGiftWrapping = true }) => {
+export const CartProductMeta = ({ title, category, image, isGiftWrapping = true, price }) => {
   return (
     <Stack direction="row" spacing="5" width="full">
       <Image
@@ -28,6 +28,9 @@ export const CartProductMeta = ({ title, category, image, isGiftWrapping = true 
           <Text fontWeight="medium">{title}</Text>
           <Text color={mode('gray.600', 'gray.400')} fontSize="sm">
             {category}
+          </Text>
+          <Text color={mode('gray.600', 'gray.400')} fontSize="sm">
+            Rs.{price}
           </Text>
         </Stack>
         {isGiftWrapping && (

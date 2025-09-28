@@ -43,47 +43,57 @@ const Bar = () => {
   }, [category, order]);
 
   return (
-    <div>
-      <Box width={'60%'} rounded={'2xl'} boxShadow={'2px 2px 2px 2px #ff6b6b '} margin={'auto'} mt={5}>
-        <SimpleGrid columns={{ lg: 4, md: 2, sm: 1 }}>
-          <Box margin={'10px'}>
-            <Button
-              backgroundColor='#ff6b6b'
-              value={"asc"}
-              isDisabled={order === 'asc'}
-              name="order"
-              onClick={ handleSort}
-            >
-              LOW TO HIGH
-            </Button>
-          </Box>
-          <Box margin={'10px'}>
-            <Button
-              backgroundColor='#ff6b6b'
-              value={"desc"}
-              isDisabled={order === 'desc'}
-              name="order"
-              onClick={handleSort}
-            >
-              HIGH TO LOW
-            </Button>
-          </Box>
-          <Spacer />
-           <Box margin={'10px'}>
-            <Select
-              placeholder='Select option'
-              border='1px solid #ff6b6b'
-              onChange={handleChange}
-              value={category}
-            >
-              <option value='plant'>plant</option>
-              <option value='seed'>seed</option>
-              <option value='bulb'>bulb</option>
-            </Select>
-          </Box>
-        </SimpleGrid>
-      </Box>
-    </div>
+    <Box
+      bg="white"
+      rounded="xl"
+      boxShadow="lg"
+      p={6}
+      border="1px solid"
+      borderColor="gray.200"
+    >
+      <SimpleGrid columns={{ lg: 4, md: 2, sm: 1 }} gap={4}>
+        <Button
+          backgroundColor="#32620f"
+          color="white"
+          value="asc"
+          isDisabled={order === 'asc'}
+          name="order"
+          onClick={handleSort}
+          _hover={{ backgroundColor: '#2a520c' }}
+          _disabled={{ backgroundColor: 'gray.300', color: 'gray.500' }}
+        >
+          Price: Low to High
+        </Button>
+        
+        <Button
+          backgroundColor="#32620f"
+          color="white"
+          value="desc"
+          isDisabled={order === 'desc'}
+          name="order"
+          onClick={handleSort}
+          _hover={{ backgroundColor: '#2a520c' }}
+          _disabled={{ backgroundColor: 'gray.300', color: 'gray.500' }}
+        >
+          Price: High to Low
+        </Button>
+        
+        <Spacer />
+        
+        <Select
+          placeholder="Filter by Category"
+          border="2px solid #32620f"
+          borderRadius="md"
+          onChange={handleChange}
+          value={category}
+          _focus={{ borderColor: '#2a520c', boxShadow: '0 0 0 1px #2a520c' }}
+        >
+          <option value="plant">Indoor Plants</option>
+          <option value="seed">Seeds</option>
+          <option value="bulb">Bulbs</option>
+        </Select>
+      </SimpleGrid>
+    </Box>
   )
 }
 

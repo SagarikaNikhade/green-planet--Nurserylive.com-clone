@@ -2,48 +2,91 @@ import { Button, CloseButton, Flex, Link, useColorModeValue, Text } from '@chakr
 import { PriceTag } from './PriceTag';
 import { CartProductMeta } from './CartProductMeta';
 import { useDispatch } from 'react-redux'
-import { deleteCart, getCart, updateCart, updateCartDec } from '../../Redux/cartReducer.js/action'
+import { deleteCart, updateCart } from '../../Redux/cartReducer.js/action'
 
-export const CartItem = ({ id,title, price,total, quantity,image, category, isGiftWrapping }) => {
+export const CartItem = ({ _id, title, total, quantity, image, category, isGiftWrapping, product }) => {
   const dispatch = useDispatch()
+  const itemId = _id; // Use the cart item ID, not the product ID
 
-  const handleDelete=(id)=>{
-    dispatch(deleteCart(id)).then(()=>dispatch(getCart))
+  const handleDelete = (itemId) => {
+    dispatch(deleteCart(itemId));
   }
-  const handleIncrease=(id,total,price,quantity)=>{
-    console.log(id)
-    dispatch(updateCart(id,total,price,quantity)).then(()=>dispatch(getCart))
+
+  const handleIncrease = (itemId, currentQuantity) => {
+    const newQuantity = currentQuantity + 1;
+    if (newQuantity <= 10) {
+      dispatch(updateCart(itemId, newQuantity));
+    }
   }
-  const handleDecrease=(id,total,price,quantity)=>{
-    console.log(id)
-    dispatch(updateCartDec(id,total,price,quantity)).then(()=>dispatch(getCart))
+
+  const handleDecrease = (itemId, currentQuantity) => {
+    const newQuantity = currentQuantity - 1;
+    if (newQuantity >= 1) {
+      dispatch(updateCart(itemId, newQuantity)); // Use updateCart for both
+    }
   }
 
   return (
     <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center">
       <CartProductMeta
-        title={title}
-        image={image}
-        category={category}
+        title={product?.product?.title}
+        image={product?.product?.image }
+        category={product?.product?.category}
+        price={product?.product?.price}
         isGiftWrapping={isGiftWrapping}
       />
       {/* Desktop */}
       <Flex width="full" justify="space-between" display={{ base: 'none', md: 'flex' }}>
-        <Button backgroundColor='#ff6b6b' onClick={()=>handleIncrease(id,total,price,quantity)} isDisabled={quantity===5}>+</Button>
+        <Button 
+          backgroundColor='#32620f' 
+          color="white"
+          onClick={() => handleIncrease(itemId, quantity)} 
+          isDisabled={quantity >= 10}
+          _hover={{ backgroundColor: '#2a520c' }}
+        >
+          +
+        </Button>
         <Text>{quantity}</Text>
-        <Button backgroundColor='#ff6b6b' onClick={()=>handleDecrease(id,total,price,quantity)} isDisabled={quantity===1}>-</Button>
+        <Button 
+          backgroundColor='#32620f' 
+          color="white"
+          onClick={() => handleDecrease(itemId, quantity)} 
+          isDisabled={quantity <= 1}
+          _hover={{ backgroundColor: '#2a520c' }}
+        >
+          -
+        </Button>
         <PriceTag price={total} />
-        <CloseButton aria-label={`Delete ${title} from cart`} onClick={()=>handleDelete(id)} />
+        <CloseButton 
+          aria-label={`Delete ${product?.product?.title} from cart`} 
+          onClick={() => handleDelete(itemId)} 
+        />
       </Flex>
 
       {/* Mobile */}
       <Flex mt="4" align="center" width="full" justify="space-between" display={{ base: 'flex', md: 'none' }}>
-        <Link fontSize="sm" textDecor="underline" onClick={()=>handleDelete(id)}>
+        <Link fontSize="sm" textDecor="underline" onClick={() => handleDelete(itemId)}>
           Delete
         </Link>
-        <Button backgroundColor='#ff6b6b' isDisabled={quantity===5} onClick={()=>handleIncrease(id,total,price,quantity)}>+</Button>
+        <Button 
+          backgroundColor='#32620f' 
+          color="white"
+          isDisabled={quantity >= 10} 
+          onClick={() => handleIncrease(itemId, quantity)}
+          _hover={{ backgroundColor: '#2a520c' }}
+        >
+          +
+        </Button>
         <Text>{quantity}</Text>
-        <Button backgroundColor='#ff6b6b' onClick={()=>handleDecrease(id,total,price,quantity)} isDisabled={quantity===1}>-</Button>
+        <Button 
+          backgroundColor='#32620f' 
+          color="white"
+          onClick={() => handleDecrease(itemId, quantity)} 
+          isDisabled={quantity <= 1}
+          _hover={{ backgroundColor: '#2a520c' }}
+        >
+          -
+        </Button>
         <PriceTag price={total} />
       </Flex>
     </Flex>

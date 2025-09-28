@@ -13,38 +13,83 @@ import {
   Text,
   useColorModeValue,
   Link,
+  useToast,
+  Alert,
+  AlertIcon,
+  Spinner
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../Redux/AuthReducer/action';
 
 const initialState = {
-  first_name : "",
-  last_name : "",
-  email : "",
-  password : "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
 }
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
-  const [register , setRegister] = useState(initialState)
- const dispatch = useDispatch()
+  const [register, setRegister] = useState(initialState);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   
- const handleChange = (e) =>{
-  const {name ,value} = e.target;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const toast = useToast();
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setRegister((prev) => {
+      return { ...prev, [name]: value }
+    })
+  }
 
-  setRegister((prev)=>{
-    return {...prev,[name]:value}
-  })
- }
- const handleSubmit = (e) =>{
-    e.preventDefault()
-    console.log(register)
-    dispatch(registerUser(register))
-    setRegister(initialState)
-    window.location.href="/login"
- }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const result = await dispatch(registerUser(register));
+      
+      if (result.success) {
+        toast({
+          title: 'Registration Successful!',
+          description: 'You have been registered successfully',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        });
+        
+        setRegister(initialState);
+        navigate('/login');
+      } else {
+        setError(result.message || 'Registration failed');
+        toast({
+          title: 'Registration Failed',
+          description: result.message,
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      setError('An error occurred during registration');
+      toast({
+        title: 'Registration Error',
+        description: 'An error occurred during registration',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
     <Flex
@@ -69,42 +114,79 @@ export default function Signup() {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
+            {error && (
+              <Alert status="error">
+                <AlertIcon />
+                {error}
+              </Alert>
+            )}
+            
             <HStack>
               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>First Name</FormLabel>
-                  <Input type="text" placeholder='First Name' name="first_name" value={register.first_name} onChange={(e)=>{handleChange(e)}}/>
+                  <Input 
+                    type="text" 
+                    placeholder='First Name' 
+                    name="firstName" 
+                    value={register.firstName} 
+                    onChange={handleChange}
+                    isDisabled={isLoading}
+                  />
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="lastName">
+                <FormControl id="lastName" isRequired>
                   <FormLabel>Last Name</FormLabel>
-                  <Input type="text" placeholder='Last Name' name="last_name" value={register.last_name} onChange={(e)=>{handleChange(e)}} />
+                  <Input 
+                    type="text" 
+                    placeholder='Last Name' 
+                    name="lastName" 
+                    value={register.lastName} 
+                    onChange={handleChange}
+                    isDisabled={isLoading}
+                  />
                 </FormControl>
               </Box>
             </HStack>
+            
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" placeholder='Email' name="email" value={register.email} onChange={(e)=>{handleChange(e)}} />
+              <Input 
+                type="email" 
+                placeholder='Email' 
+                name="email" 
+                value={register.email} 
+                onChange={handleChange}
+                isDisabled={isLoading}
+              />
             </FormControl>
+            
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} placeholder='Password' name="password" value={register.password} onChange={(e)=>{handleChange(e)}} />
+                <Input 
+                  type={showPassword ? 'text' : 'password'} 
+                  placeholder='Password' 
+                  name="password" 
+                  value={register.password} 
+                  onChange={handleChange}
+                  isDisabled={isLoading}
+                />
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
-                    onClick={() =>
-                      setShowPassword((showPassword) => !showPassword)
-                    }>
+                    onClick={() => setShowPassword((showPassword) => !showPassword)}
+                    isDisabled={isLoading}
+                  >
                     {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                   </Button>
                 </InputRightElement>
               </InputGroup>
             </FormControl>
+            
             <Stack spacing={10} pt={2}>
               <Button
-                loadingText="Submitting"
                 size="lg"
                 bg={'blue.400'}
                 color={'white'}
@@ -112,10 +194,14 @@ export default function Signup() {
                   bg: 'blue.500',
                 }}
                 onClick={handleSubmit}
-                >
-                Sign up
+                isLoading={isLoading}
+                loadingText="Creating account..."
+                isDisabled={!register.firstName || !register.lastName || !register.email || !register.password}
+              >
+                {isLoading ? <Spinner size="sm" /> : 'Sign up'}
               </Button>
             </Stack>
+            
             <Stack pt={6}>
               <Text align={'center'}>
                 Already a user? <Link color={'blue.400'} href='/login'>Login</Link>
